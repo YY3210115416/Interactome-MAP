@@ -1,0 +1,295 @@
+<!-- 目录跳转(header部分)-->
+<!-- 跳转去的页面是href后面的文件名-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <style>
+        .linewid{
+            letter-spacing: 0.02vw;
+        }
+        .photoabout{
+            display: flex;
+            flex-wrap: wrap;
+            width: 68vw;
+            margin: 0 auto;
+            /* background-color: #f0f8ff; */
+            height: 143vw;
+            justify-content: center;
+        }
+        .painner{
+            width: 24vw;
+            height: 31vw;
+            margin: 2vw 4vw;
+            /* border: 2px solid blue; */
+            display: flex;
+            flex-direction: column;
+            /* background-color: pink; */
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+        }
+        .peoimage {
+            flex: 2;
+            background-color: lightgray; 
+            /* object-fit: cover; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .peoinnerimage{
+            margin-top: 3vw;
+            width: 17vw;
+            height: 17vw;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 0.3vw solid black;
+        }
+        .peotext {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            /* border: 1vw dashed #82aede; */
+            background-color: lightgray;
+            /* border-radius: 0.9vw; */
+            /* display: flex;
+            justify-content: center;
+            align-items: center; */
+        }
+        .peoinnertext{
+            width: 17vw;
+            /* height: 10vw; */
+            margin: 1vw 0 1vw 3vw;
+            /* background-color: #fff; */
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="blue">
+    <header>
+        <div class="headbar"></div>
+        <div class="navbar">
+            <div class="titlebox">
+                <img class="logo" src="./logo.png" alt="">
+            </div>
+            <div class="titlebox">
+                <a href="./home.html">
+                    Home
+                </a>
+            </div>
+            <div class="titlebox">
+                <span><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50553b738128039c507a6801435406eb1469bc028992b71cf38e93f00f12b4a6?" alt="" class="btn-gra"></span>
+                <a href="./introduction.html">
+                    Intro
+                </a>
+                <!-- <div class="dropdown-content">
+                    <a href="{{ url_for('pages', page = 'team') }}">Members</a>
+                    <a href="{{ url_for('pages', page = 'attribution') }}">Attributions</a>
+                    <a href="{{ url_for('pages', page = 'collaboration') }}">Collaboration</a>
+                  </div> -->
+            </div>
+            
+            <div class="titlebox">
+                <a href="./search.html">
+                    Search
+                </a>
+            </div>
+            <div class="titlebox">
+                <a href="./statistics.html">
+                    Statistics
+                </a>
+            </div>
+            <!-- <div class="titlebox">
+                <a href="">
+                    Inter-Chrom
+                </a>
+            </div> -->
+            <div class="titlebox">
+                 <span><img src="https://cdn.builder.io/api/v1/image/assets/TEMP/50553b738128039c507a6801435406eb1469bc028992b71cf38e93f00f12b4a6?" alt="" class="btn-gra"></span>
+                <a href="./tutorial.html">
+                    Tutorial
+                </a>
+            </div>
+            <div class="titlebox">
+                <a href="./download.html">
+                    Download
+                </a>
+            </div>
+            <div class="titlebox" style="border-right: 0;">
+                <a href="./about.html">
+                    About
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 侧边栏 -->
+    <!-- <div id="sidebar">
+        <a class="sidebar-link" data-percentage-from="2" data-percentage-to="8" href="#" onclick="scrollToPosition(4); return false;">Database</a>
+        <a class="sidebar-link" data-percentage-from="2" data-percentage-to="8" href="#" onclick="scrollToPosition(4); return false;">HiChIP and Chia-PET</a>
+        <a class="sidebar-link" style="border-bottom: 0;" data-percentage-from="2" data-percentage-to="8" href="#" onclick="scrollToPosition(4); return false;">Relevant Articles</a>
+    </div> -->
+
+    <!-- 正页 -->
+    <div class="abbox white">
+        <div class="squarecontainer">
+            <div class="square">
+                <div class="smboxab">
+                    <div class="introtitle">
+                        <h1 class="darkblue" style="font-size: 2vw;">XiongLab</h1>
+                        <br>
+                        <div class="linewid">
+                            <p style="font-size: 1.2vw;"><b>Principal Investigator: Xushen Xiong, Ph.D.</b></p>
+                            <br>
+                            <p><b>Email: </b>xiongxs@zju.edu.cn</p>
+                            <p><b>Location:</b> Zhejiang University Medical Center, Hangzhou, China</p>
+                            <p><b>Lab Web:</b> <a href="https://xiongxslab.github.io/">https://xiongxslab.github.io/</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="square">
+                <div class="smboxab" style = "border-left:#466d97 0.1vw solid;">
+                    <img style="width: 34vw;" src="./底1.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="abmidbox">
+            <h1 class="darkblue" style="font-size: 2vw;margin-top: 2vw;">About the lab</h1><br>
+            <div class="abintro">
+                <p>
+                The Xiong Lab at Zhejiang University Medical Center seeks to understand the regulatory circuits and mechanisms of genetic diseases, including brain and heart disorders, from multiple layers, including genetics, epigenomics, epitranscriptomics (i.e. RNA modification), and transcriptome. The ultimate goal of our research is to identify the "missing regulation" of disease genetics and help guide the development of new therapeutics for human disease from multiple molecular levels.</p>
+            <br>
+            <p>
+                We integrate computational biology, AI (mainly deep learning) and statistical genetics, in combination with experimental approaches, to answer the questions and provide validations.
+            </p>
+            </div>
+        </div>
+
+        <div class="abmidbox" style="height: 149vw;">
+            <h1 class="darkblue" style="font-size: 2vw;margin-top: 2vw;">Team Member</h1>
+            <br>
+            <div class="photoabout">
+                <div class="painner" style="margin-top: 1vw;">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <p style="font-size: 1.2vw;"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="painner" style="margin-top: 1vw;">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <!-- <p style="font-size: 1.2vw;">Leader</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="painner">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <!-- <p style="font-size: 1.2vw;">Leader</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="painner">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <!-- <p style="font-size: 1.2vw;">Leader</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="painner">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <!-- <p style="font-size: 1.2vw;">Leader</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="painner">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <p style="font-size: 1.2vw;"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="painner">
+                    <div class="peoimage">
+                        <div class="peoinnerimage">
+                            <img style="object-fit: cover;border-radius: 50%;" src="./占位1.jpeg" alt="">
+                        </div>
+                    </div>
+                    <div class="peotext">
+                        <div class="peoinnertext">
+                            <p class="darkblue" style="font-size: 2vw;"><b>Yin Yang</b></p>
+                            <p style="font-size: 1.2vw;">Zhejiang University</p>
+                            <!-- <p style="font-size: 1.2vw;">Leader</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="endbox" style="top: 225vw;">
+        <div class="endtext">
+            <div class="endtextinner">
+                <p><b>XiongLab</b></p>
+                <br>
+                <p><b>Location:</b> Zhejiang University Medical Center, Hangzhou, China</p>
+                <br>
+                <p><b>Email: </b>xiongxs@zju.edu.cn</p>
+                <br>
+                <p><b>Contact for TM-Map: </b>yangy.21@intl.zju.edu.cn</p>
+            </div>
+        </div>
+        <div class="endimage">
+            <img style="width: 27vw;" src="./底1.png" alt="">
+        </div>
+    </div>
+
+    
+</body>
+</html>
