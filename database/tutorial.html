@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="./style.css">
     <style>
         .tt p{
-            text-align: justify;
+            /* text-align: justify; */
             line-height: normal;
         }
     </style>
@@ -95,7 +95,7 @@
             <img style="width: 32vw; margin: auto;" src="./tt4.png" alt="">
             <img src="./tt2.png" alt="">
         </div>
-        <div class="tt">
+        <div style="text-align: justify;" class="tt">
             <h3 class="darkblue">Download</h3>
             <hr class="darkblue">
             <p>To access and download the data files for HiChIP and ChIA-PET, please visit the Download page. There, you will find links to compressed archives for each data type.</p>
@@ -104,15 +104,65 @@
             <img src="./tt5.png" alt="">
             <p>ChIA-PET: Peak, Loop, and Annotation data</p>
         </div>
-        <div class="tt">
+        <div style="text-align: left !important;" class="tt">
             <h3 class="darkblue">File Format</h3>
-        </div>
-        <div class="tt">
-            <h3 class="darkblue">Visualization</h3>
+            <hr class="darkblue">
+            <h4 class="darkblue">HiChIP peak File</h4>
+            <p>◆ <b>chrom:</b> Chromosome name</p>
+            <p>◆ <b>chromStart:</b> Start position of the feature </p>
+            <p>◆ <b>chromEnd:</b> End position of the feature</p>
+            <p>◆ <b>name:</b> Feature name</p>
+            <p style="margin-bottom: 1vw;">◆ <b>score:</b> Numerical score representing feature significance or intensity</p>
+            <hr class="darkblue">
+            <h4 class="darkblue">HiChIP loop File</h4>
+            <p>◆ <b>First 6 fields:</b> Represent interacting bins for retained interactions after merge filtering.</p>
+            <p>◆ <b>Next 3 fields:</b> Indicate contact count, p-value, and q-value for these interactions. </p>
+            <p>◆ <b>bin1_low & bin1_high:</b> Define the lower and upper coordinates of the first set of interacting bins.</p>
+            <p>◆ <b>bin2_low & bin2_high: </b> Define the lower and upper coordinates of the second set of bins.</p>
+            <p>◆ <b>sumCC:</b> The total contact counts of significant interactions in the connected component model.</p>
+            <p style="margin-bottom: 1vw;">◆ <b>StrongConn:</b> A value between 0 and 1, representing the fraction of significant interactions in the connected component.</p>
+            <hr class="darkblue">
+            <h4 class="darkblue">ChIA-PET peak file</h4>
+            <p>◆ <b>chrom:</b> Chromosome name.</p>
+            <p>◆ <b>summit start:</b> Start coordinate of the peak summit.</p>
+            <p>◆ <b>summit end:</b> End coordinate of the peak summit.</p>
+            <p>◆ <b>peak coverage:</b> Maximum tag coverage within the peak.</p>
+            <p>◆ <b>p-value:</b> Statistical significance based on Poisson distribution.</p>
+            <p style="margin-bottom: 1vw;">◆ <b>p.adjust:</b> Adjusted p-value using the Benjamini-Hochberg method for multiple testing.</p>
+            <hr class="darkblue">
+            <h4 class="darkblue">ChIA-PET loop file</h4>
+            <p>◆ <b>chrom1:</b> Chromosome of cluster anchor 1.</p>
+            <p>◆ <b>start1:</b> Start coordinate of cluster anchor 1.</p>
+            <p>◆ <b>end1:</b> End coordinate of cluster anchor 1.</p>
+            <p>◆ <b>chrom2:</b> Chromosome of cluster anchor 2.</p>
+            <p>◆ <b>start2:</b> Start coordinate of cluster anchor 2.</p>
+            <p>◆ <b>end2:</b> End coordinate of cluster anchor 2.</p>
+            <p>◆ <b>ipet count:</b> Number of PETs linking anchors 1 and 2.</p>
+            <p>◆ <b>type:</b> Interaction type (1 = intra-chromosomal, 0 = inter-chromosomal).</p>
+            <p>◆ <b>distance:</b> Distance between anchors for intra-chromosomal interactions; set to 2,147,483,647 for inter-chromosomal.</p>
+            <p>◆ <b>tag count within anchor 1:</b> Tags within anchor 1.</p>
+            <p>◆ <b>tag count within anchor 2:</b> Tags within anchor 2.</p>
+            <p>◆ <b>p-value:</b> Statistical significance of interaction (hyper-geometric distribution).</p>
+            <p>◆ <b>p.adjust:</b> Adjusted p-value using Benjamini-Hochberg method.</p>
+            <p>◆ <b>-log10(p-value): </b> Negative logarithm of p-value.</p>
+            <p style="margin-bottom: 1vw;">◆ <b>-log10(p.adjust):</b> Negative logarithm of adjusted p-value.</p>
+            <hr class="darkblue">
+            <h4 class="darkblue">Annotation file</h4>
+            <p>◆ <b>1-3 columns: Anchor1</b> The start and end positions of anchor1 on the chromosome, derived from processed data.</p>
+            <p>◆ <b>4-6 columns: Enhancer</b> The start and end positions of the enhancer on the chromosome, obtained by intersecting anchor regions with the enhancer regions from EnhancerAtlas.</p>
+            <p>◆ <b>7-9 columns: Anchor2</b> The start and end positions of anchor2 on the chromosome, derived from processed data.</p>
+            <p>◆ <b>10-12 columns: Promoter</b> The start and end positions of the promoter on the chromosome, obtained by intersecting anchor regions with the promoter regions from UCSC.</p>
+            <p>◆ <b>13 column: Tier1/2</b> E-P loop confidence. If the loop's anchors intersect with both the promoter region from UCSC and the enhancer region from EnhancerAtlas, it is considered Tier 1 confidence. If only one anchor intersects with the UCSC promoter region, it is considered Tier 2 confidence.</p>
+            <p>◆ <b>14 column: GWAS rsID</b> The GWAS rsID for the SNP within the E-P loop.</p>
+            <p>◆ <b>15 column: E/P</b> The annotation indicating whether the SNP is associated with the Promoter (P) or the Enhancer (E).</p>
+            <p>◆ <b>16 column: P gene</b> The gene corresponding to the promoter of the loop.</p>
+            <p>◆ <b>17 column: Rank</b> The score assigned to the SNP in RegulomeDB.</p>
+            <p>◆ <b>18 column: eQTL-trait gene</b> The eQTL genes corresponding to the SNP in the eQTL Catalogue.</p>
+            <p style="margin-bottom: 2vw;">◆ <b>19 column: Disease</b> The disease associated with the SNP in the GWAS Catalogue.</p>
         </div>
     </div>
 
-    <div class="endbox" style="top: 181vw;">
+    <div class="endbox" style="top: 282vw;">
         <div class="endtext">
             <div class="endtextinner">
                 <p><b>XiongLab</b></p>
