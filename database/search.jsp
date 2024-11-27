@@ -98,6 +98,7 @@
                     </div>
                     <div class="done-btn-container">
                       <button class="done-btn" onclick="hideDropdown('serContent1'); sendSelection('types')">Done</button>
+                      <button class="clear-btn" onclick="clearCurrentSelections('types'); hideDropdown('serContent1')">Clear</button>
                     </div>
                 </div>
             </div>
@@ -168,6 +169,7 @@
                     </div>
                     <div class="done-btn-container">
                       <button class="done-btn" onclick="hideDropdown('serContent4'); sendSelection('cellTypes')">Done</button>
+                      <button class="clear-btn" onclick="clearCurrentSelections('cellTypes'); hideDropdown('serContent4')">Clear</button>
                     </div>
                 </div>
             </div>
@@ -245,6 +247,7 @@
                     </div>
                     <div class="done-btn-container">
                       <button class="done-btn" onclick="hideDropdown('serContent2'); sendSelection('cellLines')">Done</button>
+                      <button class="clear-btn" onclick="clearCurrentSelections('cellLines'); hideDropdown('serContent2')">Clear</button>
                     </div>
                 </div>
             </div>
@@ -275,13 +278,14 @@
                     </div>
                     <div class="done-btn-container">
                       <button class="done-btn" onclick="hideDropdown('serContent3'); sendSelection('TFs')">Done</button>
+                      <button class="clear-btn" onclick="clearCurrentSelections('TFs'); hideDropdown('serContent3')">Clear</button>
                     </div>
                 </div>
             </div>
             
             
             <div class="ser" style="margin-top: 2vw;" id="healthStates">
-                <span class="searchtitle">Normal/Disease</span>
+                <span class="searchtitle">Health States</span>
                 <button class="serbtn" onclick="toggleDropdown('serContent5')">All or click on me for selection</button>
                 <div class="ser-content" id="serContent5">
                     <div class="serr-content">
@@ -312,12 +316,12 @@
                         <a href="#" onclick="toggleOption('Option 25', 'healthStates')">Diffuse Histiocytic Lymphoma</a>
                         <a href="#" onclick="toggleOption('Option 26', 'healthStates')">Large Cell Lymphoma; Diffuse Histiocytic Lymphoma</a>
                         <a href="#" onclick="toggleOption('Option 27', 'healthStates')">Type 2 Diabetes</a>
-                        <a href="#" onclick="toggleOption('Option 28', 'healthStates')">Type 3 Diabetes</a>
-                        <a href="#" onclick="toggleOption('Option 29', 'healthStates')">Type 4 Diabetes</a>
-                        <a href="#" onclick="toggleOption('Option 30', 'healthStates')">Type 5 Diabetes</a>
+                        <a href="#" onclick="toggleOption('Option 28', 'healthStates')">Type 2 Diabetes</a>
+                        <a href="#" onclick="toggleOption('Option 29', 'healthStates')">Type 2 Diabetes</a>
+                        <a href="#" onclick="toggleOption('Option 30', 'healthStates')">Type 2 Diabetes</a>
                         <a href="#" onclick="toggleOption('Option 31', 'healthStates')">Stage 1 Adenocarcinoma; non-small Lung cancer</a>
-                        <a href="#" onclick="toggleOption('Option 32', 'healthStates')">Type 6 Diabetes</a>
-                        <a href="#" onclick="toggleOption('Option 33', 'healthStates')">Type 7 Diabetes</a>
+                        <a href="#" onclick="toggleOption('Option 32', 'healthStates')">Type 2 Diabetes</a>
+                        <a href="#" onclick="toggleOption('Option 33', 'healthStates')">Type 2 Diabetes</a>
                         <a href="#" onclick="toggleOption('Option 34', 'healthStates')">Acute T Cell Leukemia</a>
                         <a href="#" onclick="toggleOption('Option 35', 'healthStates')">Thyroid Carcinoma</a>
                         <a href="#" onclick="toggleOption('Option 36', 'healthStates')">Mantle Cell Lymphoma</a>
@@ -326,6 +330,7 @@
                     </div>
                     <div class="done-btn-container">
                       <button class="done-btn" onclick="hideDropdown('serContent5'); sendSelection('healthStates')">Done</button>
+                      <button class="clear-btn" onclick="clearCurrentSelections('healthStates'); hideDropdown('serContent5')">Clear</button>
                     </div>
                 </div>
             </div>
@@ -387,11 +392,29 @@
                             <td><a href="">attotation.txt</a></td>
                         </tr>
                     </c:forEach>
+
                 </table>
             </div>
         </div>
     </div>
 
+
+    <div class="endbox" style="top: 152vw;">
+        <div class="endtext">
+            <div class="endtextinner">
+                <p><b>XiongLab</b></p>
+                <br>
+                <p><b>Location:</b> Zhejiang University Medical Center, Hangzhou, China</p>
+                <br>
+                <p><b>Email: </b>xiongxs@zju.edu.cn</p>
+                <br>
+                <p><b>Contact for TM-Map: </b>yangy.21@intl.zju.edu.cn</p>
+            </div>
+        </div>
+        <div class="endimage">
+            <img style="width: 27vw;" src="./底1.png" alt="">
+        </div>
+    </div>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -564,7 +587,6 @@
         option = {
         title: {
             text: 'Methods',
-            subtext: 'Fake Data',
             left: 'center'
         },
         tooltip: {
@@ -573,18 +595,17 @@
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: '2%', 
-            top: 20,
-            bottom: 20,
+            orient: 'horizontal', // 图例水平排列
+            left: 'center', // 水平居中
+            bottom: '0%', // 放置在底部
             data: data.legendData
         },
         series: [
             {
-            name: '姓名',
+            name: 'Methods',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '50%'], 
+            center: ['50%', '40%'], 
             data: data.seriesData,
             itemStyle: {
                 opacity: 0.85 
@@ -610,14 +631,13 @@
         var inputData1 = JSON.parse('${cellType}');
 
         var data1 = {
-        legendData: inputData.map(item => item.name),
-        seriesData: inputData
+        legendData: inputData1.map(item => item.name),
+        seriesData: inputData1
         };
 
         option = {
         title: {
             text: 'Cell type',
-            subtext: 'Fake Data',
             left: 'center'
         },
         tooltip: {
@@ -626,19 +646,18 @@
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: '2%', 
-            top: 20,
-            bottom: 20,
-            data: data.legendData
+            orient: 'horizontal', // 图例水平排列
+            left: 'center', // 水平居中
+            bottom: '0%', // 放置在底部
+            data: data1.legendData
         },
         series: [
             {
-            name: '姓名',
+            name: 'Cell Type',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '50%'], 
-            data: data.seriesData,
+            center: ['50%', '40%'], 
+            data: data1.seriesData,
             itemStyle: {
                 opacity: 0.85 
             },
@@ -661,14 +680,13 @@
         var inputData2 = JSON.parse('${cellLine}');
 
         var data2 = {
-        legendData: inputData.map(item => item.name),
-        seriesData: inputData
+        legendData: inputData2.map(item => item.name),
+        seriesData: inputData2
         };
 
         option = {
         title: {
             text: 'Cell line',
-            subtext: 'Fake Data',
             left: 'center'
         },
         tooltip: {
@@ -677,19 +695,18 @@
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: '2%', 
-            top: 20,
-            bottom: 20,
-            data: data.legendData
+            orient: 'horizontal', // 图例水平排列
+            left: 'center', // 水平居中
+            bottom: '0%', // 放置在底部
+            data: data2.legendData
         },
         series: [
             {
-            name: '姓名',
+            name: 'Cell Line',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '50%'], 
-            data: data.seriesData,
+            center: ['50%', '40%'], 
+            data: data2.seriesData,
             itemStyle: {
                 opacity: 0.85 
             },
@@ -712,14 +729,13 @@
         var inputData3 = JSON.parse('${TF}');
 
         var data3 = {
-        legendData: inputData.map(item => item.name),
-        seriesData: inputData
+        legendData: inputData3.map(item => item.name),
+        seriesData: inputData3
         };
 
         option = {
         title: {
             text: 'TF',
-            subtext: 'Fake Data',
             left: 'center'
         },
         tooltip: {
@@ -728,19 +744,18 @@
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: '2%', 
-            top: 20,
-            bottom: 20,
-            data: data.legendData
+            orient: 'horizontal', // 图例水平排列
+            left: 'center', // 水平居中
+            bottom: '0%', // 放置在底部
+            data: data3.legendData
         },
         series: [
             {
-            name: '姓名',
+            name: 'TF',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '50%'], 
-            data: data.seriesData,
+            center: ['50%', '40%'], 
+            data: data3.seriesData,
             itemStyle: {
                 opacity: 0.85 
             },
@@ -763,14 +778,13 @@
         var inputData4 = JSON.parse('${healthState}');
 
         var data4 = {
-        legendData: inputData.map(item => item.name),
-        seriesData: inputData
+        legendData: inputData4.map(item => item.name),
+        seriesData: inputData4
         };
 
         option = {
         title: {
             text: 'Diseases',
-            subtext: 'Fake Data',
             left: 'center'
         },
         tooltip: {
@@ -779,19 +793,18 @@
         },
         legend: {
             type: 'scroll',
-            orient: 'vertical',
-            right: '2%', 
-            top: 20,
-            bottom: 20,
-            data: data.legendData
+            orient: 'horizontal', // 图例水平排列
+            left: 'center', // 水平居中
+            bottom: '0%', // 放置在底部
+            data: data4.legendData
         },
         series: [
             {
-            name: '姓名',
+            name: 'Disease',
             type: 'pie',
             radius: '55%',
-            center: ['50%', '50%'], 
-            data: data.seriesData,
+            center: ['50%', '40%'], 
+            data: data4.seriesData,
             itemStyle: {
                 opacity: 0.85 
             },
@@ -852,6 +865,5 @@
 
     </script>
     
-
 </body>
 </html>
